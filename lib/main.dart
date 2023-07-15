@@ -56,84 +56,86 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text("Hive Example"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "GENERAL MOTORS",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                width: 400,
-                height: 50,
-                child: TextField(
-                  controller: name,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(), label: Text("Name")),
-                ),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "GENERAL MOTORS",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                width: 400,
-                height: 50,
-                child: TextField(
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    label: Text("Brand"),
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 400,
+                  height: 50,
+                  child: TextField(
+                    controller: name,
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(), label: Text("Name")),
                   ),
-                  controller: brand,
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                width: 400,
-                height: 50,
-                child: TextField(
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    label: Text("Price"),
-                  ),
-                  controller: price,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 100,
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: gm.values.length,
-              itemBuilder: (context, index) {
-                List<CarModel> cars = gm.values.toList().cast();
-                return Container(
-                  margin: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Colors.deepPurple),
-                  child: ListTile(
-                    title: Text(
-                      cars[index].name,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.white),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 400,
+                  height: 50,
+                  child: TextField(
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      label: Text("Brand"),
                     ),
-                    subtitle: Text(
-                      cars[index].price.toString(),
-                      style: const TextStyle(color: Colors.white),
-                    ),
+                    controller: brand,
                   ),
-                );
-              },
-            )
-          ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 400,
+                  height: 50,
+                  child: TextField(
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      label: Text("Price"),
+                    ),
+                    controller: price,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 100,
+              ),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: gm.values.length,
+                itemBuilder: (context, index) {
+                  List<CarModel> cars = gm.values.toList().cast();
+                  return Container(
+                    margin: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.deepPurple),
+                    child: ListTile(
+                      title: Text(
+                        cars[index].name,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                      ),
+                      subtitle: Text(
+                        cars[index].price.toString(),
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  );
+                },
+              )
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
